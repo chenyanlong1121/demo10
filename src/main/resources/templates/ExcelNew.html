@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="http://localhost:80/web-apps/apps/api/documents/api.js"></script>
+  </style>
+</head>
+<body>
+<div id="placeholder" class = "nav"></div>
+<script language="javascript" type="text/javascript">
+  var months =
+          [
+            "January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+          ];
+  var d=new Date();
+  var date=String(months[d.getMonth()]+d.getDate()+d.getHours()+d.getMinutes()+d.getMilliseconds());
+  window.docEditor=new DocsAPI.DocEditor("placeholder", {
+    "document": {
+      "fileType": "xls",
+      "key": date,
+      "title": "新建文档",
+      "url": "http:\/\/172.20.40.58:8080\/Mission\/NewExcel"
+    },
+    "documentType": "cell",
+    "lang":"zh-CN",
+    "width": "1600px",
+    "height": "900px",
+    "editorConfig": {
+      "callbackUrl": "http:\/\/172.20.40.58:8080\/Mission\/importExcel",
+      "lang":"zh-CN",
+      // "createUrl":"http://172.20.40.58:8080/Mission/showNewExcel"
+      // "templates": [
+      //     {
+      //         "image": "http:\/\/172.20.40.58:8080\/example.png",
+      //         "title": "exampletemplate1.docx",
+      //         "url": "http:\/\/172.20.40.58:8080\/sheet.xls"
+      //     }
+      // ]
+    },
+    "permissions": {
+      "comment": true,
+      "download": true,
+      "edit": true,
+      "fillForms": true,
+      "print": true,
+      "review": true
+    }
+  });
+</script>
+</body>
+</html>

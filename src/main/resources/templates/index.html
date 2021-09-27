@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="get" action="/Mission/download">
+  输入文档名<input type="text" name="filename" id="filename">
+  <button type="submit">提交</button>
+</form>
+文件数量<div th:text="${lists.size()}"></div>
+<table border="1">
+    选择文档
+
+    <tr th:each="list:${lists}">
+        <td th:text="${list}"></td>
+    </tr>
+</table>
+</body>
+</html>
